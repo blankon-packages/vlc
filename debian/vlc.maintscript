@@ -1,0 +1,2 @@
+symlink_to_dir /usr/share/doc/vlc vlc-nox 2.2.2-4~
+symlink_to_dir /usr/share/bug/vlc vlc-nox 2.2.2-4~
