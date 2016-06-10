@@ -67,7 +67,7 @@ Build-Depends: autopoint,
                libncursesw5-dev,
                libnotify-dev,
                libogg-dev (>= 1.0),
-               libomxil-bellagio-dev [linux-any],
+               libomxil-bellagio-dev,
                libopus-dev (>= 1.0.3),
                libpng-dev,
 #              libpostproc-dev (>= 4:0.6),
@@ -352,7 +352,7 @@ Description: VBI teletext plugin for VLC
  This plugin adds support for VBI teletext to the VLC media player.
 
 Package: vlc-plugin-samba
-Architecture: linux-any kfreebsd-any
+Architecture: any
 Pre-Depends: ${misc:Pre-Depends}
 Depends: ${misc:Depends}, ${shlibs:Depends}
 Breaks: vlc-nox (<< 2.2.0~pre2-2~)
