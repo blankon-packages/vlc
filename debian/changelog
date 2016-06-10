@@ -2,6 +2,7 @@ vlc (2.2.4-1blankon1) tambora; urgency=medium
 
   * New upstream release
   * debian/rules disable test
+  * add debian/source/include-binaries
 
  -- Syai Mif <syaimif@di.blankon.in>  Fri, 10 Jun 2016 08:12:43 +0700
 
