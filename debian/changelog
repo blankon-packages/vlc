@@ -2,7 +2,7 @@ vlc (2.2.4-1blankon1) tambora; urgency=medium
 
   * New upstream release
 
- -- Syai Mif <syaimif@di.blankon.in>  Thu, 09 Jun 2016 13:09:30 +0700
+ -- Syai Mif <syaimif@di.blankon.in>  Fri, 10 Jun 2016 08:12:43 +0700
 
 vlc (2.2.4-1) unstable; urgency=medium
 
@@ -433,12 +433,6 @@ vlc (2.1.1-1) unstable; urgency=low
   * Remove obsolete conffiles (Closes: #703750).
 
  -- Benjamin Drung <bdrung@debian.org>  Mon, 18 Nov 2013 21:46:53 +0100
-
-vlc (2.1.0-2blankon1) suroboyo; urgency=low
-
-  * Rebuild against
-
- -- Mahyuddin Idram Ahmad <dotovr@di.blankon.in>  Sat, 16 Nov 2013 20:51:10 +0700
 
 vlc (2.1.0-2) unstable; urgency=high
 
