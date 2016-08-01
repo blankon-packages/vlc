@@ -348,7 +348,7 @@ Description: VBI teletext plugin for VLC
  This plugin adds support for VBI teletext to the VLC media player.
 
 Package: vlc-plugin-samba
-Architecture: linux-any kfreebsd-any
+Architecture: any
 Pre-Depends: ${misc:Pre-Depends}
 Depends: ${misc:Depends}, ${shlibs:Depends}
 Breaks: vlc-nox (<< 2.2.0~pre2-2~)
