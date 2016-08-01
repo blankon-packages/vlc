@@ -1,3 +1,31 @@
+vlc (2.2.4-3blankon1) tambora; urgency=medium
+
+  * Rebuild
+
+ -- Syai Mif <syaimif@localhost>  Mon, 01 Aug 2016 13:48:48 +0700
+
+vlc (2.2.4-3) unstable; urgency=medium
+
+  [ Mateusz Łukasik ]
+  * debian/control:
+    - Remove Clément Stenac from Uploaders. Thanks for your job!
+
+  [ Sebastian Ramacher ]
+  * debian/patches/{vlc_atomic*,Fix-build-using-old-GCC-intrinsics}.patch: Fix
+    FTBFS with GCC 6 (Closes: #831199)
+
+ -- Sebastian Ramacher <sramacher@debian.org>  Fri, 29 Jul 2016 00:52:06 +0200
+
+vlc (2.2.4-2) unstable; urgency=medium
+
+  * Build ffmpeg without libopenjpeg (Closes: #826827)
+    - debian/control: Remove libopenjpeg-dev from B-D.
+    - debian/rules: Build ffmpeg with --disable-libopenjpeg.
+  * debian/rules: Revert workaround for zsh completion build failures on
+    powerpc. The underlying issue seems to be fixed.
+
+ -- Sebastian Ramacher <sramacher@debian.org>  Sat, 11 Jun 2016 11:44:37 +0200
+
 vlc (2.2.4-1blankon1) tambora; urgency=medium
 
   * New upstream release

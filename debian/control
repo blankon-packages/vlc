@@ -3,8 +3,7 @@ Section: video
 Priority: optional
 Maintainer: BlankOn Developers <blankon-dev@googlegroups.com>
 XSBC-Original-Maintainer: Debian Multimedia Maintainers <pkg-multimedia-maintainers@lists.alioth.debian.org>
-Uploaders: Clément Stenac <zorglub@debian.org>,
-           Loic Minier <lool@dooz.org>,
+Uploaders: Loic Minier <lool@dooz.org>,
            Christophe Mutricy <xtophe@videolan.org>,
            Mohammed Adnène Trojette <adn+deb@diwi.org>,
            Reinhard Tartler <siretart@tauware.de>,
@@ -31,7 +30,7 @@ Build-Depends: autopoint,
                libcddb2-dev,
                libcdio-dev (>= 0.78.2),
                libchromaprint-dev (>= 0.6.0),
-               libcrystalhd-dev,
+               libcrystalhd-dev [amd64 i386],
                libdbus-1-dev (>= 1.6.0),
                libdc1394-22-dev (>= 2.1.0),
                libdca-dev,
@@ -128,7 +127,6 @@ Build-Depends: autopoint,
                libgsm1-dev,
                liblzma-dev,
                libmp3lame-dev,
-               libopenjpeg-dev,
                librtmp-dev,
                libsnappy-dev,
                libsoxr-dev,
@@ -190,8 +188,6 @@ Depends: libproxy-tools,
          vlc-data (= ${source:Version}),
          ${misc:Depends},
          ${shlibs:Depends}
-Conflicts: libvlccore7
-Replaces: libvlccore7
 Description: base library for VLC and its modules
  VLC is the VideoLAN project's media player. It plays MPEG, MPEG-2, MPEG-4,
  DivX, MOV, WMV, QuickTime, WebM, FLAC, MP3, Ogg/Vorbis files, DVDs, VCDs,
@@ -352,7 +348,7 @@ Description: VBI teletext plugin for VLC
  This plugin adds support for VBI teletext to the VLC media player.
 
 Package: vlc-plugin-samba
-Architecture: any
+Architecture: linux-any kfreebsd-any
 Pre-Depends: ${misc:Pre-Depends}
 Depends: ${misc:Depends}, ${shlibs:Depends}
 Breaks: vlc-nox (<< 2.2.0~pre2-2~)

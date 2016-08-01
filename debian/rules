@@ -259,7 +259,6 @@ ffmpegflags += \
 # from ffmpeg 7:2.8.6-1 debian/rules and contrib/src/ffmpeg/rules.mak
 ffmpegflags += \
 	--enable-gpl \
-	--disable-decoder=libopenjpeg \
 	--disable-decoder=libschroedinger \
 	--enable-gnutls \
 	--disable-libass \
@@ -271,11 +270,11 @@ ffmpegflags += \
 	--disable-libfontconfig \
 	--disable-libfreetype \
 	--disable-libfribidi \
+	--disable-libopenjpeg \
 	--enable-libgme \
 	--enable-libgsm \
 	--enable-libmodplug \
 	--enable-libmp3lame \
-	--enable-libopenjpeg \
 	--enable-libopus \
 	--enable-librtmp \
 	--enable-libschroedinger \
@@ -344,32 +343,29 @@ override_dh_auto_configure:
 	dh_auto_build --sourcedirectory $(ffmpegbuild) -- V=1
 	$(MAKE) -C $(ffmpegbuild) install-libs install-headers V=1
 	PKG_CONFIG_PATH=$(ffmpegprefix)/lib/pkgconfig \
-	dh_auto_configure -- $(confflags)
+		dh_auto_configure -- $(confflags)
 
 override_dh_auto_build:
 	dh_auto_build
 ifeq ($(DEB_BUILD_GNU_TYPE), $(DEB_HOST_GNU_TYPE))
-	# Build zsh completion and remove it if it fails.
-	# This is workaround until we find out why it fails on praetorius.
-	( \
-		BUILDDIR=$(CURDIR) \
-		cd extras/analyser && ./zsh_completion.sh \
-	) || rm -f extras/analyser/_zsh
+	# Build zsh completion
+	BUILDDIR=$(CURDIR) \
+	cd extras/analyser && ./zsh_completion.sh
 endif
 
 override_dh_auto_test:
-#ifeq (,$(filter nocheck,$(DEB_BUILD_OPTIONS)))
-#ifeq ($(DEB_BUILD_GNU_TYPE),$(DEB_HOST_GNU_TYPE))
-#	# Check which plugins were built and whether they load properly.
-#	@if test $$( id -u ) -eq 0 ; then \
-#	   echo "Not runing the test as you are compiling as root"; \
-#	   echo "Use 'dpkg-buildpackage -rfakeroot' rather than 'fakeroot dpkg-buildpackage'"; \
-#	else \
-#	   command="./vlc -vvv --ignore-config --no-plugins-cache --list --no-color"; \
-#	   echo "$${command}"; $${command} ; \
-#	fi
-#endif
-#endif
+ifeq (,$(filter nocheck,$(DEB_BUILD_OPTIONS)))
+ifeq ($(DEB_BUILD_GNU_TYPE),$(DEB_HOST_GNU_TYPE))
+	# Check which plugins were built and whether they load properly.
+	@if test $$( id -u ) -eq 0 ; then \
+	   echo "Not runing the test as you are compiling as root"; \
+	   echo "Use 'dpkg-buildpackage -rfakeroot' rather than 'fakeroot dpkg-buildpackage'"; \
+	else \
+	   command="./vlc -vvv --ignore-config --no-plugins-cache --list --no-color"; \
+	   echo "$${command}"; $${command} ; \
+	fi
+endif
+endif
 
 override_dh_install:
 	# Remove plugin cache
@@ -399,9 +395,8 @@ ifeq ($(DEB_BUILD_GNU_TYPE), $(DEB_HOST_GNU_TYPE))
 			echo warning: $$file depends on libX11 or libxcb; \
 		fi; \
 	done; \
-	# Install zsh completion if available
-	find extras/analyser/_vlc -exec \
-		dh_install -pvlc-nox '{}' usr/share/zsh/vendor-completions \;
+	# Install zsh completion
+	dh_install -pvlc-nox extras/analyser/_vlc usr/share/zsh/vendor-completions
 endif
 	$(if $(shell dpkg-vendor --is Ubuntu && echo true),dh_install -pvlc-nox debian/source_vlc.py usr/share/apport/package-hooks/)
 	dh_buildinfo -p vlc-nox
