@@ -1,8 +1,24 @@
-vlc (2.2.4-3blankon1) tambora; urgency=medium
+vlc (2.2.4-5blankon1) tambora; urgency=medium
 
-  * Rebuild
+  * Armhf support 
 
- -- Syai Mif <syaimif@localhost>  Mon, 01 Aug 2016 13:48:48 +0700
+ -- Rahman Yusri Aftian <aftian@blankon.id>  Thu, 22 Sep 2016 20:12:53 +0700
+
+vlc (2.2.4-5) unstable; urgency=medium
+
+  * Update ffmpeg to 2.8.8.
+
+ -- Sebastian Ramacher <sramacher@debian.org>  Wed, 21 Sep 2016 20:29:03 +0200
+
+vlc (2.2.4-4) unstable; urgency=medium
+
+  [ Pino Toscano ]
+  * Install solid actions in Frameworks location. (Closes: #834884)
+
+  [ Sebastian Ramacher ]
+  * Bump debhelper compat to 10.
+
+ -- Sebastian Ramacher <sramacher@debian.org>  Tue, 13 Sep 2016 21:29:23 +0200
 
 vlc (2.2.4-3) unstable; urgency=medium
 
@@ -25,14 +41,6 @@ vlc (2.2.4-2) unstable; urgency=medium
     powerpc. The underlying issue seems to be fixed.
 
  -- Sebastian Ramacher <sramacher@debian.org>  Sat, 11 Jun 2016 11:44:37 +0200
-
-vlc (2.2.4-1blankon1) tambora; urgency=medium
-
-  * New upstream release
-  * debian/rules disable test
-  * add debian/source/include-binaries
-
- -- Syai Mif <syaimif@di.blankon.in>  Fri, 10 Jun 2016 08:12:43 +0700
 
 vlc (2.2.4-1) unstable; urgency=medium
 

@@ -90,7 +90,7 @@ confflags += \
 	--enable-x264 \
 	--enable-x265 \
 	--enable-zvbi \
-	--with-kde-solid=/usr/share/kde4/apps/solid/actions/ \
+	--with-kde-solid=/usr/share/solid/actions/ \
 	$(NULL)
 # Reasons for disabling features:
 # decklink -> not in Debian
@@ -327,7 +327,7 @@ export DEB_LDFLAGS_MAINT_APPEND
 export removeplugins
 
 %:
-	dh $@ --parallel --with autoreconf
+	dh $@
 
 override_dh_auto_clean:
 	rm -rf $(ffmpegprefix) $(ffmpegbuild)
@@ -339,7 +339,7 @@ override_dh_autoreconf:
 override_dh_auto_configure:
 	mkdir -p $(ffmpegbuild) $(ffmpegprefix)
 	cd $(ffmpegbuild) && \
-		$(CURDIR)/ffmpeg-2-8-7/configure $(ffmpegflags)
+		$(CURDIR)/ffmpeg-2-8-8/configure $(ffmpegflags)
 	dh_auto_build --sourcedirectory $(ffmpegbuild) -- V=1
 	$(MAKE) -C $(ffmpegbuild) install-libs install-headers V=1
 	PKG_CONFIG_PATH=$(ffmpegprefix)/lib/pkgconfig \
