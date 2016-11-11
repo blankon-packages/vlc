@@ -1,3 +1,24 @@
+vlc (2.2.4-8blankon1) tambora; urgency=medium
+
+  * New Upstream Updates 
+
+ -- Rahman Yusri Aftian <aftian@blankon.id>  Fri, 11 Nov 2016 22:06:01 +0700
+
+vlc (2.2.4-8) unstable; urgency=medium
+
+  * debian/NEWS: Remove NEWS entry on package split. On upgrade, new
+    Recommends are installed by apt anyway.
+  * debian/control:
+    - Switch from liblircclient-dev to liblirc-dev.
+    - Remove shlibs:Depends from vlc's Depends.
+  * debian/rules: Add --disable-neon when building with noopt.
+  * debian/patches:
+    - drop-check-qt-check.patch: Remove obsolete patches.
+    - multiple: Add upstream patches to generate default skins2 skin
+      reproducibly. (Closes: #841525)
+
+ -- Sebastian Ramacher <sramacher@debian.org>  Tue, 01 Nov 2016 13:34:46 +0100
+
 vlc (2.2.4-7blankon1) tambora; urgency=medium
 
   * New Upstream Updates 
